@@ -1,3 +1,5 @@
 <?php
-$footer = "</body>
-</html>";
+$footer = "<footer></footer>
+</body>
+</html>
+";

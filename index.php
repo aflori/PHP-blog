@@ -1,21 +1,19 @@
 <?php
-    // initialize the variable $dataBlog + request functions
-    include "config/database.php";
+    
     
     /* session_start();*/
 
     $routes = [
-        'index' => ['app/controllers/homeController.php', "ressources/views/index.php"],
-        null => ['app/controllers/homeController.php', "ressources/views/index.php"]
+        'index' => 'homeController.php',
+        null => 'homeController.php'
     ];
 
     $nomDuLien = filter_input(INPUT_GET, "action",FILTER_SANITIZE_URL);
 
-    if ( isset($routes[$nomDuLien]) ):
-        foreach($routes[$nomDuLien] as $valueImport){
-            require_once $valueImport;
-        }
+    if ( array_key_exists($nomDuLien, $routes) ):
+        require_once 'app/controllers/' . $routes[$nomDuLien];
     else:
+        header("HTTP/1.0 404 NotFound");
         require 'ressources/views/errors/erreur404.html';
     endif;
 
