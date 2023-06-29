@@ -5,14 +5,16 @@
     /* session_start();*/
 
     $routes = [
-        'index' => "ressources/views/index.php",
-        null => "ressources/views/index.php"
+        'index' => ['app/controllers/homeController.php', "ressources/views/index.php"],
+        null => ['app/controllers/homeController.php', "ressources/views/index.php"]
     ];
 
     $nomDuLien = filter_input(INPUT_GET, "action",FILTER_SANITIZE_URL);
 
     if ( isset($routes[$nomDuLien]) ):
-        require $routes[$nomDuLien];
+        foreach($routes[$nomDuLien] as $valueImport){
+            require_once $valueImport;
+        }
     else:
         require 'ressources/views/errors/erreur404.html';
     endif;
