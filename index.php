@@ -1,10 +1,12 @@
 <?php
-
-    // session_start();
+    // initialize the variable $dataBlog + request functions
+    include "config/database.php";
+    
+    /* session_start();*/
 
     $routes = [
-        // 'index' => "ressources/views/index.php",
-        // null => "ressources/views/index.php"
+        'index' => "ressources/views/index.php",
+        null => "ressources/views/index.php"
     ];
 
     $nomDuLien = filter_input(INPUT_GET, "action",FILTER_SANITIZE_URL);
