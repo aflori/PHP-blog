@@ -34,6 +34,10 @@ echo transformSimpleTableIntoHTML([
     1 => 1,
     "quatorze" => "2023-05-28"
 ]);
+
+
+
+// putting on site the last 10 blog articles
 echo getHtmlFooter();
 
 
