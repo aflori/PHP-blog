@@ -22,9 +22,9 @@ CREATE TABLE `articles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `articles` (`ID`, `title`, `content`, `publicationDate`, `unpublicationDate`, `importantLevel`, `Autors_ID`) VALUES
-(1,	'Le sport vedette',	'Le biathlon est un sport vedette pour le club \'Martin Roche\' situé à Valence',	'2023-06-28 13:20:13',	'2025-06-28 13:20:13',	2,	2),
-(2,	'Le sport des ardéchois',	'Les ardéchois ne pratiquent pas de biathlon mais plutôt du baseball',	'2023-06-28 13:24:39',	'2024-12-31 00:00:00',	5,	5),
-(3,	'La vie communautaire à Valence',	'La vie communautaire à Valence s\'organise de manière très incertaine; on peut y retrouver pas mal de groupes religieux hostile et des habitants entre les deux',	'2023-06-28 13:27:11',	'2029-01-01 00:00:00',	0,	1);
+(1,	'Le sport vedette',	'Le biathlon est un sport vedette pour le club \'Martin Roche\' situé à Valence',	'2022-06-28 23:00:00',	'2025-06-28 01:00:00',	2,	2),
+(2,	'Le sport des ardéchois',	'Les ardéchois ne pratiquent pas de biathlon mais plutôt du baseball',	'2023-06-03 22:24:39',	'2024-12-31 00:00:00',	5,	5),
+(3,	'La vie communautaire à Valence',	'La vie communautaire à Valence s\'organise de manière très incertaine; on peut y retrouver pas mal de groupes religieux hostile et des habitants entre les deux',	'2023-05-28 00:00:00',	'2029-01-01 00:00:00',	0,	1);
 
 DROP TABLE IF EXISTS `autors`;
 CREATE TABLE `autors` (

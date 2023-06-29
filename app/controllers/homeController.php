@@ -6,7 +6,7 @@ require_once 'ressources/views/layouts/footer.php';
 require_once 'ressources/views/index.php';
 
 ##################### importing Data base functions ##################
-// require_once 'app/persistences/blogPostData.php';
+require_once 'app/persistences/blogPostData.php';
 
 
 // $articlesTable = getTable($dataBlog, "id, title, content");
