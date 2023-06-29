@@ -1,18 +1,18 @@
 <?php
     
     
-    /* session_start();*/
+    // session_start(); #no use for it yet
 
-    $routes = [
+    $routes = [ # now, the file generating html page are there 
         'index' => 'homeController.php',
         null => 'homeController.php'
     ];
 
     $nomDuLien = filter_input(INPUT_GET, "action",FILTER_SANITIZE_URL);
 
-    if ( array_key_exists($nomDuLien, $routes) ):
+    if ( array_key_exists($nomDuLien, $routes) ): #get method redirect to a page
         require_once 'app/controllers/' . $routes[$nomDuLien];
-    else:
+    else: #error page: link dosn't work
         header("HTTP/1.0 404 NotFound");
         require 'ressources/views/errors/erreur404.html';
     endif;

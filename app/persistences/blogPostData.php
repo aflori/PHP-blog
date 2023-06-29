@@ -1,6 +1,4 @@
 <?php
-include "config/database.php";
-
 /*
 Le fichier contient les fonctions suivantes:
 
@@ -17,6 +15,8 @@ Le fichier contient les fonctions suivantes:
 */
 
 
+
+include "config/database.php";
 
 
 function getTable($dataBase, $column="*", $tableName = "Articles")
