@@ -40,16 +40,16 @@ function get10LastArticles()
     }
     // $formatedArray[0] = $raw;
     array_push($formatedArray, $raw);
-
+    
     foreach($rawData as $line)
     {
         $raw = [];
         foreach($line as $value)
         {
-            array_push($raw, $valus);
+            array_push($raw, $value);
         }
         array_push($formatedArray, $raw);
     }
-
+    
     return $formatedArray;
 }

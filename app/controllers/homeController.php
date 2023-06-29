@@ -38,6 +38,15 @@ echo transformSimpleTableIntoHTML([
 
 
 // putting on site the last 10 blog articles
+echo "\n";
+echo (
+    transform2DtableIntoHTML(
+        get10LastArticles()
+    )
+);
+
+
+//ending page
 echo getHtmlFooter();
 
 
