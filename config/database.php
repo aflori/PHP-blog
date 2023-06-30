@@ -19,7 +19,7 @@ function getArticleDataFromID($idNumber)
 "SELECT 
     articles.title AS title,
     articles.content AS content,
-    articles.publicationDate AS 'date Posté',
+    DATE_FORMAT(articles.publicationDate, \"%d/%m/%Y\" ) AS 'date Posté',
     autors.pseudoname AS pseudo
 FROM
     articles
