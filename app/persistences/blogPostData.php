@@ -41,10 +41,11 @@ getArticleContent(int | string $articleID): array
 require_once "config/database.php";
 
 
-function setRequest($fileName, $serveurID)
+function setRequest($serveurPDO, $fileName, $param = [] )
 {
     $requestContent = file_get_contents("database/" . $fileName);
-    $rawContent = $serveurID->query($requestContent);
+    $rawContent = $serveurPDO->prepare($requestContent);
+    $rawContent->execute($param);
     return $rawContent->fetchAll(PDO::FETCH_ASSOC);
 }
 
@@ -52,16 +53,13 @@ function setRequest($fileName, $serveurID)
 function get10LastArticles()
 {
     $dataBase = getSourceServeur();
-    return setRequest("get_last_article_published.sql", $dataBase);
+    return setRequest($dataBase, "get_last_article_published.sql");
 }
-
 function getArticleContent($articleID)
 {
     $dataBase = getSourceServeur();
-    $rawContent = $dataBase->query(
-        getArticleDataFromID($articleID)
-    );
-    $content = $rawContent->fetchAll(PDO::FETCH_ASSOC);
+    $content = setRequest($dataBase, "article_data.sql", [$articleID]);
+
     if ($content === [] )
     {
         return [];
