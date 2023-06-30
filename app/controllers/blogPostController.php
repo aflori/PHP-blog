@@ -20,6 +20,6 @@ if( $idArticle== false) #'==' to have the compatible test with null
 else
 {
     $finalHtmlPage = getHtmlHeader("Article");
-    
+    $articleContent = getArticleContent($finalHtmlPage)
     echo $finalHtmlPage . getHtmlFooter();
 }
