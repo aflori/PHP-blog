@@ -6,8 +6,10 @@
     $routes = [ # now, the file generating html page are there 
         'index' => 'homeController.php',
         null => 'homeController.php',
-        'blogpost' => 'blogPostController.php'
+        'blogpost' => 'blogPostController.php',
+        'blobPostCreate' => 'blogPostCreateController.php'
     ];
+    var_dump($routes);
     $nomDuLien = filter_input(INPUT_GET, "action",FILTER_SANITIZE_URL);
 
     if ( array_key_exists($nomDuLien, $routes) ): #get method redirect to a page
