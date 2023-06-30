@@ -1,12 +1,26 @@
-<?php
-/*
-print the page content
------
-need $articlesContent defined with a 2D array (see transform2DtableIntoHTML) to see the format
-*/
+<?php /*
+    needs $articlesContent defined containing the articles lists
+*/ ?>
 
-require_once 'ressources/views/viewsFunction.php';
+<h1> Les derniers articles du blogs </h1>
 
-echo getPageTitleH1('Les derniers articles du blogs');
-// var_dump($articlesContent);
-echo transformArticlesListIntoHtml($articlesContent);
+<section>
+<?php foreach ( $articlesContent as $article) :?>
+
+    <article>
+        <h2>
+            <?=$article['title'] ?>
+        </h2>
+        <a href="http://blog.local/?action=blogpost&id=<?=$article["ID"]?>">
+            Les détails
+        </a>
+        <p>
+            écrit par <?= $article["écrit par"] ?>
+        </p>
+        <p>
+            le <?= $article['le'] ?>
+        </p>
+    </article>
+<?php endforeach ?>    
+
+</section>

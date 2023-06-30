@@ -5,15 +5,15 @@
 
     $routes = [ # now, the file generating html page are there 
         'index' => 'homeController.php',
-        null => 'homeController.php',
+        // null => 'homeController.php',
         'blogpost' => 'blogPostController.php',
         'blobPostCreate' => 'blogPostCreateController.php'
     ];
-    var_dump($routes);
-    $nomDuLien = filter_input(INPUT_GET, "action",FILTER_SANITIZE_URL);
+    $nomDeLaRoute = filter_input(INPUT_GET, "action",FILTER_SANITIZE_URL);
+    if($nomDeLaRoute === null) $nomDeLaRoute = 'index';
 
-    if ( array_key_exists($nomDuLien, $routes) ): #get method redirect to a page
-        require_once 'app/controllers/' . $routes[$nomDuLien];
+    if ( array_key_exists($nomDeLaRoute, $routes) ): #get method redirect to a page
+        require_once 'app/controllers/' . $routes[$nomDeLaRoute];
     else: #error page: link dosn't work
         header("HTTP/1.0 404 NotFound");
         require 'ressources/views/errors/erreur404.html';

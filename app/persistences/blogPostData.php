@@ -34,14 +34,6 @@ getArticleContent(int | string $articleID): array
     $numberArticle must be an integer or an integer formated into a string 
     if article ID dosn't exist, return [].
 
-writeArticleData(array $articleContent):
-    put into a proper html code the content of an article defined in an array on the form of
-    [
-        'title' => string,
-        'content' => string,
-        'date Posté' => string
-        'pseudo' => string
-    ]
 */
 
 
@@ -78,13 +70,4 @@ function getArticleContent($articleID)
     {
         return $content[0];
     }
-}
-
-function writeArticleData($articleContent)
-{
-
-    $render  = "<h1> " . $articleContent['title'] . " </h1> ";
-    $render .= "<p> " . $articleContent['content'] . " <p> ";
-    $render .= "<p>  publié le <i>" . $articleContent['date Posté'] . " </i>par<i> " . $articleContent['pseudo'] . "</i>.</p>";
-    return $render;
 }

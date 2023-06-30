@@ -1,11 +1,6 @@
 <?php
 
 
-##################### HTML DATA ######################################
-require_once 'ressources/views/layouts/header.php';
-require_once 'ressources/views/layouts/footer.php';
-require_once 'ressources/views/viewsFunction.php';
-
 ##################### importing Data base functions ##################
 require_once 'app/persistences/blogPostData.php';
 
@@ -20,18 +15,25 @@ if( $idArticle== false) #'==' to have the compatible test with null
 }
 else
 {
-    $finalHtmlPage = getHtmlHeader("Article");
     $articleContent = getArticleContent($idArticle);
-
-    switch( count($articleContent) )
+    if(array_key_exists('title', $articleContent))
     {
-        default:
-            $finalHtmlPage .= getPageTitleH1("Article not found");
-            break;
-        case 4:
-            $finalHtmlPage .= writeArticleData($articleContent);
-            // var_dump($finalHtmlPage);
-            break;
+        $metaTitle = $articleContent['title'];
     }
-    echo $finalHtmlPage . getHtmlFooter();
+    else
+    {
+        $metaTitle = "Article not found";
+    }
+    include "ressources/views/layouts/header.tpl.php";
+
+    
+    if( count($articleContent)=== 4 )
+    {
+        include "ressources/views/blogPost.tpl.php";
+    }
+    else
+    {
+        include "ressources/views/blogPostArticleNotFound.tpl.php";
+    }
+    include "ressources/views/layouts/footer.tpl.php";
 }
