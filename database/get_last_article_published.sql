@@ -1,11 +1,13 @@
 SELECT
-    articles.title AS "Article title",
-    autors.pseudoname AS "writen by",
-    articles.publicationDate AS "ON"
+    articles.title AS "article",
+    autors.pseudoname AS "écrit par",
+    articles.publicationDate AS "le"
 FROM
     articles
   INNER JOIN
     autors ON articles.Autors_ID = autors.ID
+WHERE
+    articles.unpublicationDate > NOW()
 ORDER BY
     publicationDate DESC
 LIMIT
