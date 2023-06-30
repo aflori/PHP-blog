@@ -22,5 +22,16 @@ else
 {
     $finalHtmlPage = getHtmlHeader("Article");
     $articleContent = getArticleContent($idArticle);
+
+    switch( count($articleContent) )
+    {
+        default:
+            $finalHtmlPage .= getPageTitleH1("Article not found");
+            break;
+        case 4:
+            $finalHtmlPage .= writeArticleData($articleContent);
+            // var_dump($finalHtmlPage);
+            break;
+    }
     echo $finalHtmlPage . getHtmlFooter();
 }
