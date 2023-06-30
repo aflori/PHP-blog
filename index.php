@@ -5,7 +5,8 @@
 
     $routes = [ # now, the file generating html page are there 
         'index' => 'homeController.php',
-        null => 'homeController.php'
+        null => 'homeController.php',
+        'blogpost' => 'blogPostController.php'
     ];
 
     $nomDuLien = filter_input(INPUT_GET, "action",FILTER_SANITIZE_URL);
