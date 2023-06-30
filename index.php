@@ -16,6 +16,3 @@
         header("HTTP/1.0 404 NotFound");
         require 'ressources/views/errors/erreur404.html';
     endif;
-
-
-?>

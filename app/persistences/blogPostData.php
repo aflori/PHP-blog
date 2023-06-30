@@ -19,11 +19,29 @@ get10LastArticles(): array
         ]
     ]
 
+setRequest(string $fileName, PDO $serveurID()): array
+    return an array holding request result
+        from $fileName script (for exemple get_last_article_published.sql)
+        Result is based on PDO object dataBase
+    The return format is 
+    [
+        'key1' => [value1, value2, value3]
+        'key2' => [value1_, value2_,value3_]
+    ]
+
 */
 
 
 
 require_once "config/database.php";
+
+
+function setRequest($fileName, $serveurID)
+{
+    $requestContent = file_get_contents("database/" . $fileName);
+    $rawContent = $serveurID->query($requestContent);
+    return $rawContent->fetchAll(PDO::FETCH_ASSOC);
+}
 
 
 function get10LastArticles()
