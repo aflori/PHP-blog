@@ -69,6 +69,33 @@ transformSimpleTableIntoHTML($tableToPrint): string
         <li> 2023-05-28 </li>
     </ul>"
 
+transformArticlesListIntoHtml($fetchResult): string | false
+    return a string with content the html value or false if argument dosn't have the good format
+    $fetchResult must be on the format:
+        [
+            0 => [
+                'title' => content,
+                "écrit par" => pseudo,
+                "le" => datepublication,
+                'ID' => idArticle
+            ],
+            1 => [
+                'title' => content2,
+                "écrit par" => pseudo2,
+                "le" => datepublication2,
+                'ID' => idArticle2
+            ],
+            ...
+        ]
+    and return
+        html code for
+        ----------------------------------------------------------
+        |titre                     | publié par | publié le      |
+        ----------------------------------------------------------
+        | content avec redirection | pseudo     | datepublication|
+        ----------------------------------------------------------
+        | ... 
+        ----------------------------------------------------------
 */
 
 function getPageTitleH1($titleName = "Hello world")
@@ -105,4 +132,23 @@ function transformSimpleTableIntoHTML($tableToPrint)
     }
 
     return $render . ' </ul>';
+}
+
+function transformArticlesListIntoHtml($fetchResult)
+{
+    
+
+    $tableRender = "<table> <tr> <th> titre </th> <th> publié par </th> <th> publié le </th> </tr>\n";
+    foreach($fetchResult as $raw)
+    {
+        $tableRender .= "<tr>
+        <th>
+        <a href=\"http://blog.local/?action=blogpost&id=" . $raw["ID"] . "\"> "
+        . $raw["title"]
+        . " </a> </th>
+        <th>" . $raw["écrit par"] . "</th>
+        <th> " . $raw['le'] . ' </th> </tr>';
+    }
+    return $tableRender . '</table>';
+
 }

@@ -1,7 +1,8 @@
 SELECT
-    articles.title AS "article",
+    articles.title AS "title",
     autors.pseudoname AS "écrit par",
-    articles.publicationDate AS "le"
+    DATE_FORMAT(articles.publicationDate, "%d/%m/%Y" )AS "le",
+    articles.ID AS "ID"
 FROM
     articles
   INNER JOIN

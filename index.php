@@ -8,7 +8,6 @@
         null => 'homeController.php',
         'blogpost' => 'blogPostController.php'
     ];
-
     $nomDuLien = filter_input(INPUT_GET, "action",FILTER_SANITIZE_URL);
 
     if ( array_key_exists($nomDuLien, $routes) ): #get method redirect to a page

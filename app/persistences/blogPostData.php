@@ -47,27 +47,5 @@ function setRequest($fileName, $serveurID)
 function get10LastArticles()
 {
     $dataBase = getSourceServeur();
-    $rawData = setRequest("get_last_article_published.sql", $dataBase);
-
-    $formatedArray = [ ];
-    //initilizing ID raw
-    $raw = [];
-    foreach($rawData[0] as $key => $value)
-    {
-        array_push($raw, $key);
-    }
-    // $formatedArray[0] = $raw;
-    array_push($formatedArray, $raw);
-    
-    foreach($rawData as $line)
-    {
-        $raw = [];
-        foreach($line as $value)
-        {
-            array_push($raw, $value);
-        }
-        array_push($formatedArray, $raw);
-    }
-    
-    return $formatedArray;
+    return setRequest("get_last_article_published.sql", $dataBase);
 }
