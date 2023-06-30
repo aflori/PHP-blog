@@ -12,6 +12,7 @@ require_once 'app/persistences/blogPostData.php';
 
 
 $idArticle = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
 if( $idArticle== false) #'==' to have the compatible test with null
 {
     header("HTTP/1.0 404 NotFound");
@@ -20,6 +21,6 @@ if( $idArticle== false) #'==' to have the compatible test with null
 else
 {
     $finalHtmlPage = getHtmlHeader("Article");
-    $articleContent = getArticleContent($finalHtmlPage)
+    $articleContent = getArticleContent($idArticle);
     echo $finalHtmlPage . getHtmlFooter();
 }

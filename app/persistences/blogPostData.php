@@ -29,6 +29,10 @@ setRequest(string $fileName, PDO $serveurID()): array
         'key2' => [value1_, value2_,value3_]
     ]
 
+getArticleContent(int | string $articleID): array
+    return an array holding article ID content ('title' => 'nom, 'content' => ..., 'date Posté' => ... 'pseudo' => ...)
+    $numberArticle must be an integer or an integer formated into a string 
+    if article ID dosn't exist, return [].
 */
 
 
@@ -48,4 +52,21 @@ function get10LastArticles()
 {
     $dataBase = getSourceServeur();
     return setRequest("get_last_article_published.sql", $dataBase);
+}
+
+function getArticleContent($articleID)
+{
+    $dataBase = getSourceServeur();
+    $rawContent = $dataBase->query(
+        getArticleDataFromID($articleID)
+    );
+    $content = $rawContent->fetchAll(PDO::FETCH_ASSOC);
+    if ($content === [] )
+    {
+        return [];
+    }
+    else
+    {
+        return $content[0];
+    }
 }

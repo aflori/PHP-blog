@@ -26,5 +26,5 @@ FROM
   INNER JOIN
     autors ON autors.ID = articles.Autors_ID
 WHERE
-    articles.ID = $idNumber;"
+    articles.ID = $idNumber;";
 }
