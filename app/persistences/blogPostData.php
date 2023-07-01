@@ -85,3 +85,15 @@ function getAutorsList()
     $dataBase = getSourceServeur();
     return setRequest($dataBase, "getAutorsList.sql");
 }
+
+function createArticle($param)
+{
+    $dataBase = getSourceServeur();
+    setRequest($dataBase, "add_article.sql", [
+        'title' => $param['title'],
+        'content' => $param['articleContent'],
+        'depublicationDate' => $param['date'],
+        'importantLevel' => $param['importance'],
+        'autor' => $param['autorPseudo']
+    ]);
+}
