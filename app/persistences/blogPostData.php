@@ -34,6 +34,19 @@ getArticleContent(int | string $articleID): array
     $numberArticle must be an integer or an integer formated into a string 
     if article ID dosn't exist, return [].
 
+getAutorsList(): array
+        return the Autors' list on the database on format:
+        [
+            [
+                "pseudoname" => pseudo1,
+                "id" => numeroAutor1
+            ],
+            [
+                "pseudoname" => pseudo2,
+                "id" => numeroAutor2
+            ],
+            ...
+        ]
 */
 
 
@@ -48,8 +61,6 @@ function setRequest($serveurPDO, $fileName, $param = [] )
     $rawContent->execute($param);
     return $rawContent->fetchAll(PDO::FETCH_ASSOC);
 }
-
-
 function get10LastArticles()
 {
     $dataBase = getSourceServeur();
@@ -68,4 +79,9 @@ function getArticleContent($articleID)
     {
         return $content[0];
     }
+}
+function getAutorsList()
+{
+    $dataBase = getSourceServeur();
+    return setRequest($dataBase, "getAutorsList.sql");
 }

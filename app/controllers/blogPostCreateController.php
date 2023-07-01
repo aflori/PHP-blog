@@ -8,16 +8,7 @@ require_once 'app/persistences/blogPostData.php';
 $metaTitle = "créer un nouvel article";
 include "ressources/views/layouts/header.tpl.php";
 
-$autorList = [ 
-    [
-        "pseudoname" => 'Michel',
-        "id" => 2
-    ],
-    [
-        "pseudoname" => 'Toto',
-        "id" => 3
-    ]
-];
+$autorList = getAutorsList();
 include "ressources/views/blogCreateArticle.tpl.php";
 
 var_dump($_POST);
