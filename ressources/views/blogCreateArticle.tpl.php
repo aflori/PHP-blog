@@ -12,8 +12,8 @@
  'createErrorDateMessage'
  'createErrorImportance'
  'createErrorImportanceMessage'
-'createErrorPseudo'
-'createErrorPseudoMessage'
+ 'createErrorPseudo'
+ 'createErrorPseudoMessage'
 */
 ?>
 
@@ -30,16 +30,14 @@
             <?=$_SESSION['createErrorTitleMessage']?>
             <?php else: ?>
             Entrez le nom de l'article
-            <?php endif; ?>
+            <?php endif; ?> 
         </label>
         <input 
             type="text"
             name="title"
-            id="title"
-            <?php if($formSent):?>
+            id="title"<?php if($formSent):?> 
             value="<?=$_SESSION['create']['title']?>"
-            <?php endif; ?>
-        >
+        <?php endif; ?> >
     </div>
     <!-- content -->
     <div>
@@ -73,9 +71,9 @@
         <label for="importance">
             <?php if ($formSent and $_SESSION['createErrorImportance']): ?>
             <?= $_SESSION['createErrorImportanceMessage'] ?>
-            <? else: ?>
+            <?php else: ?>
             Niveau d'importance
-            <? endif;?>
+            <?php endif;?>
         </label>
         <input
             type="number"
@@ -83,14 +81,14 @@
             id="importance"
             min='1' max='5'<?php
             if ($formSent and !$_SESSION['createErrorImportance']): ?>
-                value="<?= $_SESSION['article']['importance'] ?>"
+            value="<?= $_SESSION['create']['importance'] ?>"
             <?php endif;?>
         >
     </div>
     <!-- Autor pseudoname (radio - generated dynamicly) -->
     <div>
         <label for="radioAutor">
-        <?php if($formSent and $_SESSION['createErrorPseudo']) ?>
+        <?php if($formSent and $_SESSION['createErrorPseudo']): ?>
             <?= $_SESSION['createErrorPseudoMessage'] ?>
         <?php else: ?>
             Choississez l'auteur:
@@ -104,14 +102,14 @@
                         name="autorPseudo"
                         value="<?=$autorID['id']?>"
                         <?php
-                            if ($formSent and $autorID['id']===$_SESSION['article']['autorPseudo'])
+                            if ($formSent and $autorID['id']===$_SESSION['create']['autorPseudo'])
                             { echo "selected"; }
                         ?>
                     >
                     <?= $autorID["pseudoname"] ?> 
                 </label>
             </div>
-        <?php endforeach ?>
+        <?php endforeach; ?>
     </div>
     <button type="submit">Créer l'article</button>
 </form>
