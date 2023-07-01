@@ -21,6 +21,11 @@
             le <?= $article['le'] ?>
         </p>
     </article>
-<?php endforeach ?>    
+    <?php endforeach ?>    
+<section>
+    <a href="http://blog.local/?action=blogPostCreate">
+        créer un nouvelle article
+    </a>
+</section>
 
 </section>
