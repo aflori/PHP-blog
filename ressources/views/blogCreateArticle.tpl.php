@@ -64,7 +64,13 @@
                 Date de retrait
             <?php endif; ?>
         </label>
-        <input type="date" name="date" id="Date">
+        <input
+            type="date"
+            name="date"
+            id="Date"<?php
+            if($formSent and !$_SESSION['createErrorDate']): ?>
+            value="<?=$_SESSION['create']['date']?>"
+            <?php endif; ?> >
     </div>
     <!-- importance level (optionnal) -->
     <div>
@@ -80,7 +86,7 @@
             name="importance"
             id="importance"
             min='1' max='5'<?php
-            if ($formSent and !$_SESSION['createErrorImportance']): ?>
+            if ($formSent and !$_SESSION['createErrorImportance'] and $_SESSION['create']['importance']>0): ?>
             value="<?= $_SESSION['create']['importance'] ?>"
             <?php endif;?>
         >
@@ -103,9 +109,8 @@
                         value="<?=$autorID['id']?>"
                         <?php
                             if ($formSent and $autorID['id']===$_SESSION['create']['autorPseudo'])
-                            { echo "selected"; }
-                        ?>
-                    >
+                            { echo "checked"; }
+                        ?> >
                     <?= $autorID["pseudoname"] ?> 
                 </label>
             </div>
