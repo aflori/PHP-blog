@@ -109,6 +109,11 @@ if(count($_POST) !== 0)
         $_SESSION['createErrorPseudoMessage'] = "Veuillez choisir UN auteur:";
     }
 
+    if(!$_SESSION['createError'])
+    {
+        createArticle($_SESSION['create']);
+    }
+
     header("Location: http://blog.local/?action=blogPostCreate&createArticle=true");
     die();
 }
