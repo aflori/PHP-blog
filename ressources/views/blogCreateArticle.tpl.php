@@ -32,13 +32,15 @@
     </div>
     <!-- Autor pseudoname (radio - generated dynamicly) -->
     <div>
-        <label for="radios"> Choississez l'auteur </label>
-        <div id="radios">
-            <input type="radio" name="autorPseudo" value="michel" id="type1" >
-            <label for="type1">
-                Michel
-            </label>
-        </div>
+        <label for="radioAutor"> Choississez l'auteur </label>
+        <?php foreach($autorList as $autorID): ?>
+            <div id="radioAutor">
+                <label>
+                    <input type="radio" name="autorPseudo" value="<?= $autorID['id'] ?>" id="type1" >
+                    <?= $autorID["pseudoname"] ?>
+                </label>
+            </div>
+        <?php endforeach ?>
     </div>
     <button type="submit">Créer l'article</button>
 </form>
