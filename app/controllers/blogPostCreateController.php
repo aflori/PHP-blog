@@ -49,9 +49,7 @@ if(count($_POST) !== 0)
         $_SESSION['createErrorContent'] = true;
         $_SESSION['createErrorContentMessage'] = 'Le contenue de l\'article est trop court';
     }
-    elseif (
-        strlen($_SESSION['create']['articleContent']) > 150
-    )
+    elseif ( strlen($_SESSION['create']['articleContent']) > 150 )
     {
         $_SESSION['createError'] = true;
         $_SESSION['createErrorContent'] = true;
@@ -73,7 +71,7 @@ if(count($_POST) !== 0)
         $_SESSION['createErrorDate'] = false;
     }
 
-    if($_SESSION['create']['importance']===null)
+    if($_SESSION['create']['importance']===false)
     {
         $_SESSION['create']['importance'] = 0;
         $_SESSION['createErrorImportance'] = false;
@@ -106,6 +104,7 @@ if(count($_POST) !== 0)
     }
     else
     {
+        $_SESSION['createError'] = true;
         $_SESSION['createErrorPseudo'] = true;
         $_SESSION['createErrorPseudoMessage'] = "Veuillez choisir UN auteur:";
     }
