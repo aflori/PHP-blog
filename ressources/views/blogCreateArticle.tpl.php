@@ -13,8 +13,7 @@
         <label for="articleContent">
             Contenu de l'article
         </label>
-        <textarea name="articleContent" id="articleContent" cols="30" rows="10">
-        </textarea>
+        <textarea name="articleContent" id="articleContent" cols="30" rows="10"></textarea>
     </div>
     <!-- delete Date -->
     <div>
@@ -28,7 +27,7 @@
         <label for="importance">
             Niveau d'importance
         </label>
-        <input type="text" name="importance" id="importance">
+        <input type="number" name="importance" id="importance" min='1' max='5'>
     </div>
     <!-- Autor pseudoname (radio - generated dynamicly) -->
     <div>
