@@ -19,7 +19,7 @@
     <!-- delete Date -->
     <div>
         <label for="Date">
-            Date d'effacement
+            Date de retrait
         </label>
         <input type="date" name="date" id="Date">
     </div>
