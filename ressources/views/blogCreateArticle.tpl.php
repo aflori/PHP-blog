@@ -1,42 +1,114 @@
 <?php 
-/* part already done to gain time on later steps */
+/* 
+ needs definition of $autorList
+ if $formSent is true also needs $_SESSION defined with key:
+ 'create' (default values)
+ 'createError' (booleant saying if is created or not)
+ 'createErrorTitle' (boolean indicating if their is an error in this part)
+ 'createErrorTitleMessage' (message to show if boolean ^ is true)
+ 'createErrorContent' (same as createErrorTitle for content part)
+ 'createErrorContentMessage' (same as createErrorTitleMessage for content part)
+ 'createErrorDate'
+ 'createErrorDateMessage'
+ 'createErrorImportance'
+ 'createErrorImportanceMessage'
+'createErrorPseudo'
+'createErrorPseudoMessage'
+*/
 ?>
 
+<?php if($formSent and !$_SESSION['createError'])
+{
+    echo '<h3> article créé </h3>';
+}
+?>
 <form action="http://blog.local/?action=blogPostCreate" method="post">
     <!-- define title -->
     <div>
-        <label for="title">Écrivez le titre</label>
-        <input type="text" name="title" id="title" >
+        <label for="title">
+            <?php if ($formSent and $_SESSION['createErrorTitle']):?>
+            <?=$_SESSION['createErrorTitleMessage']?>
+            <?php else: ?>
+            Entrez le nom de l'article
+            <?php endif; ?>
+        </label>
+        <input 
+            type="text"
+            name="title"
+            id="title"
+            <?php if($formSent):?>
+            value="<?=$_SESSION['create']['title']?>"
+            <?php endif; ?>
+        >
     </div>
     <!-- content -->
     <div>
         <label for="articleContent">
+            <?php if ($formSent and $_SESSION['createErrorContent']): ?>
+            <?= $_SESSION['createErrorContentMessage'] ?>
+            <?php else: ?>
             Contenu de l'article
+            <?php endif; ?>
         </label>
-        <textarea name="articleContent" id="articleContent" cols="30" rows="10"></textarea>
+        <textarea name="articleContent" id="articleContent" cols="30" rows="5"><?php
+            if($formSent)
+            {
+                echo $_SESSION['create']['articleContent'];
+            }
+        ?></textarea>
     </div>
     <!-- delete Date -->
     <div>
         <label for="Date">
-            Date de retrait
+            <?php if($formSent and $_SESSION['createErrorDate']): ?>
+                <?= $_SESSION['createErrorDateMessage'] ?>
+            <?php else: ?>
+                Date de retrait
+            <?php endif; ?>
         </label>
         <input type="date" name="date" id="Date">
     </div>
     <!-- importance level (optionnal) -->
     <div>
         <label for="importance">
+            <?php if ($formSent and $_SESSION['createErrorImportance']): ?>
+            <?= $_SESSION['createErrorImportanceMessage'] ?>
+            <? else: ?>
             Niveau d'importance
+            <? endif;?>
         </label>
-        <input type="number" name="importance" id="importance" min='1' max='5'>
+        <input
+            type="number"
+            name="importance"
+            id="importance"
+            min='1' max='5'<?php
+            if ($formSent and !$_SESSION['createErrorImportance']): ?>
+                value="<?= $_SESSION['article']['importance'] ?>"
+            <?php endif;?>
+        >
     </div>
     <!-- Autor pseudoname (radio - generated dynamicly) -->
     <div>
-        <label for="radioAutor"> Choississez l'auteur </label>
+        <label for="radioAutor">
+        <?php if($formSent and $_SESSION['createErrorPseudo']) ?>
+            <?= $_SESSION['createErrorPseudoMessage'] ?>
+        <?php else: ?>
+            Choississez l'auteur:
+        <?php endif; ?>
+        </label>
         <?php foreach($autorList as $autorID): ?>
             <div id="radioAutor">
                 <label>
-                    <input type="radio" name="autorPseudo" value="<?= $autorID['id'] ?>" id="type1" >
-                    <?= $autorID["pseudoname"] ?>
+                    <input 
+                        type="radio"
+                        name="autorPseudo"
+                        value="<?=$autorID['id']?>"
+                        <?php
+                            if ($formSent and $autorID['id']===$_SESSION['article']['autorPseudo'])
+                            { echo "selected"; }
+                        ?>
+                    >
+                    <?= $autorID["pseudoname"] ?> 
                 </label>
             </div>
         <?php endforeach ?>
