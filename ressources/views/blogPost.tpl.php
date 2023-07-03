@@ -18,3 +18,4 @@ needs $articleContent difined to print an article content with key:
     par
     <i><?=$articleContent['pseudo']?></i>.
 </p>
+<a href="http://blog.local/?action=blogPostEdit&id=<?=$idArticle?>" >Modifier l'article</a>
