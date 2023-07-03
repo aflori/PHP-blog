@@ -54,7 +54,7 @@ getAutorsList(): array
 require_once "config/database.php";
 
 
-function setRequest($serveurPDO, $fileName, $param = [] )
+function setRequest($serveurPDO, $fileName, $param = [] ): array
 {
     $requestContent = file_get_contents("database/" . $fileName);
     $rawContent = $serveurPDO->prepare($requestContent);
