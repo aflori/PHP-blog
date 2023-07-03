@@ -54,19 +54,19 @@ getAutorsList(): array
 require_once "config/database.php";
 
 
-function setRequest($serveurPDO, $fileName, $param = [] ): array
+function setRequest(PDO $serveurPDO,string $fileName,array $param = [] ): array
 {
     $requestContent = file_get_contents("database/" . $fileName);
     $rawContent = $serveurPDO->prepare($requestContent);
     $rawContent->execute($param);
     return $rawContent->fetchAll(PDO::FETCH_ASSOC);
 }
-function get10LastArticles()
+function get10LastArticles(): array
 {
     $dataBase = getSourceServeur();
     return setRequest($dataBase, "get_last_article_published.sql");
 }
-function getArticleContent($articleID)
+function getArticleContent(int $articleID) : array
 {
     $dataBase = getSourceServeur();
     $content = setRequest($dataBase, "article_data.sql", [$articleID]);
@@ -80,13 +80,13 @@ function getArticleContent($articleID)
         return $content[0];
     }
 }
-function getAutorsList()
+function getAutorsList() : array
 {
     $dataBase = getSourceServeur();
     return setRequest($dataBase, "getAutorsList.sql");
 }
 
-function createArticle($param)
+function createArticle(array $param) : array
 {
     $dataBase = getSourceServeur();
     setRequest($dataBase, "add_article.sql", [
@@ -96,4 +96,9 @@ function createArticle($param)
         'importantLevel' => $param['importance'],
         'autor' => $param['autorPseudo']
     ]);
+}
+
+function editArticle(array $source, int $idArticle) : void
+{
+    return;
 }
