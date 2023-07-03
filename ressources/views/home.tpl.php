@@ -3,25 +3,29 @@
 */ ?>
 
 <h1> Les derniers articles du blogs </h1>
-
 <section>
-<?php foreach ( $articlesContent as $article) :?>
+<?php if(count($articlesContent) === 0): ?>
+    <h2> Pas d'article encore écrit</h2>
+<?php else: ?>
+    <?php foreach ( $articlesContent as $article) :?>
 
-    <article>
-        <h2>
-            <?=$article['title'] ?>
-        </h2>
-        <a href="http://blog.local/?action=blogpost&id=<?=$article["ID"]?>">
-            Les détails
-        </a>
-        <p>
-            écrit par <?= $article["écrit par"] ?>
-        </p>
-        <p>
-            le <?= $article['le'] ?>
-        </p>
-    </article>
-    <?php endforeach ?>    
+        <article>
+            <h2>
+                <?=$article['title'] ?>
+            </h2>
+            <a href="http://blog.local/?action=blogpost&id=<?=$article["ID"]?>">
+                Les détails
+            </a>
+            <p>
+                écrit par <?= $article["écrit par"] ?>
+            </p>
+            <p>
+                le <?= $article['le'] ?>
+            </p>
+        </article>
+    <?php endforeach ?>
+<?php endif ?>
+</section>
 <section>
     <a href="http://blog.local/?action=blogPostCreate">
         créer un nouvelle article
