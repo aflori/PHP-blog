@@ -6,6 +6,6 @@ SELECT
 FROM
     Articles
   INNER JOIN
-    Autors ON autors.ID = articles.Autors_ID
+    Autors ON Autors.ID = Articles.Autors_ID
 WHERE
     Articles.ID = ?
