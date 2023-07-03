@@ -1,11 +1,11 @@
 SELECT 
-    articles.title AS title,
-    articles.content AS content,
-    DATE_FORMAT(articles.publicationDate, "%d/%m/%Y" ) AS 'date Posté',
-    autors.pseudoname AS pseudo
+    Articles.title AS title,
+    Articles.content AS content,
+    DATE_FORMAT(Articles.publicationDate, "%d/%m/%Y" ) AS 'date Posté',
+    Autors.pseudoname AS pseudo
 FROM
-    articles
+    Articles
   INNER JOIN
-    autors ON autors.ID = articles.Autors_ID
+    Autors ON autors.ID = articles.Autors_ID
 WHERE
-    articles.ID = ?
+    Articles.ID = ?

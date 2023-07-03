@@ -10,6 +10,6 @@
 
 function getSourceServeur()
 {
-    return new PDO('mysql:host=localhost;dbname=blog', 'aflori', 'vtBtepJD4Q');
+    return new PDO('mysql:host=localhost;dbname=blog', 'aflori', 'D5es0X9UyKe6');
 }
 

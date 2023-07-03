@@ -1,4 +1,4 @@
 DELETE FROM 
-    `articles`
+    `Articles`
 WHERE
-    `articles`.`ID` = :idArticle
+    `Articles`.`ID` = :idArticle

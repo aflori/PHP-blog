@@ -1,14 +1,14 @@
 SELECT
-    articles.title AS "title",
-    autors.pseudoname AS "écrit par",
-    DATE_FORMAT(articles.publicationDate, "%d/%m/%Y" )AS "le",
-    articles.ID AS "ID"
+    Articles.title AS "title",
+    Autors.pseudoname AS "écrit par",
+    DATE_FORMAT(Articles.publicationDate, "%d/%m/%Y" )AS "le",
+    Articles.ID AS "ID"
 FROM
-    articles
+    Articles
   INNER JOIN
-    autors ON articles.Autors_ID = autors.ID
+    Autors ON Articles.Autors_ID = Autors.ID
 WHERE
-    articles.unpublicationDate > NOW()
+    Articles.unpublicationDate > NOW()
 ORDER BY
     publicationDate DESC
 LIMIT

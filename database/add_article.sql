@@ -1,5 +1,5 @@
 INSERT INTO 
-    `articles` 
+    `Articles`
     (`ID`,
     `title`,
     `content`,
