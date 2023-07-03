@@ -2,7 +2,7 @@
 /* part already done to gain time on later steps */
 ?>
 
-<form action="http://blog.local/?action=blogPostEdit" method="post">
+<form action="http://blog.local/?action=blogPostEdit&id=<?=$idArticle?>" method="post">
     <!-- new article title  -->
     <div>
         <label for="title">Réécrivez le titre</label>
