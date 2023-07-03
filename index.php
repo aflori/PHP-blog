@@ -9,7 +9,8 @@
         'index' => 'homeController.php',
         // null => 'homeController.php',
         'blogpost' => 'blogPostController.php',
-        'blogPostCreate' => 'blogPostCreateController.php'
+        'blogPostCreate' => 'blogPostCreateController.php',
+        'blogPostEdit' => 'blogPostEditController.php'
     ];
 
     $nomDeLaRoute = filter_input(INPUT_GET, "action",FILTER_SANITIZE_URL);
