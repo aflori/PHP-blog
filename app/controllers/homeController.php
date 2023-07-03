@@ -8,8 +8,8 @@ require_once 'app/persistences/blogPostData.php';
 
 //views function 
 $metaTitle = "Mon blog";
-include "ressources/views/layouts/header.tpl.php";
 $articlesContent = get10LastArticles();
+
+include "ressources/views/layouts/header.tpl.php";
 include "ressources/views/home.tpl.php";
-//ending page
 include "ressources/views/layouts/footer.tpl.php";
