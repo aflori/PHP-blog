@@ -14,14 +14,16 @@ else
     $metaTitle = "Éditer un article";
     $articleContent = getArticleContent($idArticle);
     if( count($articleContent)!== 0 ) {
+        $formSent = filter_input(INPUT_GET,'editArticle',FILTER_VALIDATE_BOOL);
+
         if (count($_POST) === 0) {
             include "ressources/views/layouts/header.tpl.php";
-            if(array_key_exists('editArticle',$_GET) and $_GET['editArticle']==="true") var_dump($_SESSION);
             include "ressources/views/blogEditArticle.tpl.php";
             include "ressources/views/layouts/footer.tpl.php";
         }
         else #we received a post request: editing article
         {
+        
             $filters = [
                 'title' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
                 'articleContent' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
@@ -43,7 +45,7 @@ else
                 $_SESSION['editContent'] = true;
                 $_SESSION['editContentMessage'] = ($newDatas['articleContent'] == null ? "Écrivez un contenu":"Le contenu est trop court");
             else:
-                $_SESSION['edit'] = false;
+                $_SESSION['editContent'] = false;
             endif;
             if ($newDatas['date']==null):
                 $_SESSION['edit'] = true;
@@ -52,13 +54,14 @@ else
             else:
                 $_SESSION['editDate'] = false;
             endif;
-            if($newDatas['importance']> 5 or $newDatas['importance']<=0):
+            
+            if( ((int)$newDatas['importance'])> 5 or ((int)$newDatas['importance'])<=0 && $_POST['importance'] !== ""):
                 $_SESSION['edit'] = true;
                 $_SESSION['editImportance'] = true;
                 $_SESSION['editImportanceMessage'] = "Veuillez rentrer une valeur valide";
             else:
-                $_SESSION['editImportance'] = true;
-                if($newDatas['importance'] === false) $newDatas['importance'] = 0;
+                if($_POST['importance'] === "") $newDatas['importance'] = 0;
+                $_SESSION['editImportance'] = false;
             endif;
 
             if( !$_SESSION['edit'])
@@ -66,7 +69,7 @@ else
                 //fonction à faire pour éditer l'article
                 editArticle($newDatas, $idArticle);
             }
-            header("Location: http://blog.local/?action=blogPostEdit&id=1&editArticle=true");
+            header("Location: http://blog.local/?action=blogPostEdit&id=$idArticle&editArticle=true");
         }
     }
     else

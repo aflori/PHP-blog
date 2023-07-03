@@ -100,5 +100,14 @@ function createArticle(array $param) : array
 
 function editArticle(array $source, int $idArticle) : void
 {
+    $dataBase = getSourceServeur();
+    setRequest($dataBase, 'edit_article.sql', [
+        'newTitre' => $source['title'],
+        'newContent' => $source['articleContent'],
+        'newDepublicationDate' => $source['date'],
+        'newImportance' => $source['importance'],
+        'idArticle' => $idArticle
+    ]);
+
     return;
 }
