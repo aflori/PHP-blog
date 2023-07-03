@@ -27,7 +27,7 @@ else
     include "ressources/views/layouts/header.tpl.php";
 
     
-    if( count($articleContent)=== 4 )
+    if( count($articleContent) !== 0 )
     {
         include "ressources/views/blogPost.tpl.php";
     }
