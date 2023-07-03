@@ -20,7 +20,7 @@
         <label for="Date">
             nouvelle date de retrait
         </label>
-        <input type="date" name="date" id="Date" value="<?=$articleContent['date Posté']?>">
+        <input type="date" name="date" id="Date" value="<?=$articleContent['date retrait']?>">
     </div>
     <!-- importance level (optionnal) -->
     <div>
