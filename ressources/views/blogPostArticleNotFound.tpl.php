@@ -1,4 +1,4 @@
 <?php /*
     No restrictions
 */ ?>
-<h1> Artique indisponnible </h1>
+<h1> Artique innexistant </h1>

@@ -6,30 +6,35 @@
     <!-- new article title  -->
     <div>
         <label for="title">Réécrivez le titre</label>
-        <input type="text" name="title" id="title" value= "base">
+        <input type="text" name="title" id="title" value="<?=$articleContent['title']?>">
     </div>
     <!-- content -->
     <div>
         <label for="articleContent">
             nouveau contenu de l'article
         </label>
-        <textarea name="articleContent" id="articleContent" cols="30" rows="10">
-            contenu de l'article
-        </textarea>
+        <textarea name="articleContent" id="articleContent" cols="30" rows="10"><?=$articleContent['content']?></textarea>
     </div>
     <!-- delete Date -->
     <div>
         <label for="Date">
             nouvelle date de retrait
         </label>
-        <input type="date" name="date" id="Date" varlue="2023-07-22">
+        <input type="date" name="date" id="Date" value="<?=$articleContent['date Posté']?>">
     </div>
     <!-- importance level (optionnal) -->
     <div>
         <label for="importance">
             Niveau d'importance
         </label>
-        <input type="text" name="importance" id="importance">
+        <input
+                type="text"
+                name="importance"
+                id="importance"<?php
+                if ($articleContent['importance']>0):?>
+                value="<?=$articleContent['importance']?>"
+                <?php endif ?>
+        >
     </div>
-    <button type="submit">Suprimer l'article</button>
+    <button type="submit">Éditer l'article</button>
 </form>
