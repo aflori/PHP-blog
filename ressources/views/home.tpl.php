@@ -32,4 +32,3 @@
     </a>
 </section>
 
-</section>
