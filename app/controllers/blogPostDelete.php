@@ -7,7 +7,7 @@ $idToDelete = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
 if($postRequest and is_int($idToDelete) and count(getArticleContent($idToDelete)) !== 0 )
 {
-    echo "OK";
+    deleteArticle($idToDelete);
 }
 
-//header("Location: http://blog.local/?action=index");
+header("Location: http://blog.local/?action=index");

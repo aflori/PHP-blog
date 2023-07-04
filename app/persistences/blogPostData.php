@@ -111,3 +111,9 @@ function editArticle(array $source, int $idArticle) : void
 
     return;
 }
+
+function deleteArticle(int $idArticle): void
+{
+
+    return ;
+}
