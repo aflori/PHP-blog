@@ -86,7 +86,7 @@ function getAutorsList() : array
     return setRequest($dataBase, "getAutorsList.sql");
 }
 
-function createArticle(array $param) : array
+function createArticle(array $param) : void
 {
     $dataBase = getSourceServeur();
     setRequest($dataBase, "add_article.sql", [
