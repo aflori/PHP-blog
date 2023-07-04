@@ -121,5 +121,6 @@ function deleteArticle(int $idArticle): void
 
 function getComment(int $idArticle): array
 {
-    return [];
+    $dataBase = getSourceServeur();
+    return setRequest($dataBase, "Get_comment_from_article_ID.sql", [$idArticle] );
 }
