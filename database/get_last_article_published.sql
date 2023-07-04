@@ -9,6 +9,8 @@ FROM
     Autors ON Articles.Autors_ID = Autors.ID
 WHERE
     Articles.unpublicationDate > NOW()
+  AND
+    Articles.publicationDate <= NOW()
 ORDER BY
     publicationDate DESC
 LIMIT
