@@ -4,7 +4,7 @@ needs $articleContent difined to print an article content with key:
 'content' -> article text
 'date Posté' -> publication date
 'pseudo' -> autor's pseudoname
-*/ ?>
+*/ ?>blogPostDelet
 
 <h1>
     <?=$articleContent['title']?>
@@ -21,6 +21,6 @@ needs $articleContent difined to print an article content with key:
 <a href="http://blog.local/?action=blogPostEdit&id=<?=$idArticle?>" >Modifier l'article</a>
 <section>
     <form action="?action=blogPostDelet&id=<?=$idArticle?>" method="post">
-        <button type="submit">Suprimer l'article</button>
+        <button type="submit" name="submit" value="true">Suprimer l'article</button>
     </form>
 </section>
