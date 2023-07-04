@@ -24,3 +24,4 @@ needs $articleContent difined to print an article content with key:
         <button type="submit" name="submit" value="true">Suprimer l'article</button>
     </form>
 </section>
+<a href="?action=index">retour à l'acueil</a>

@@ -118,3 +118,5 @@
     </div>
     <button type="submit">Créer l'article</button>
 </form>
+
+<a href="?action=index">retour à l'acueil</a>

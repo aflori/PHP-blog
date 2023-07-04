@@ -55,3 +55,5 @@
     </div>
     <button type="submit">Éditer l'article</button>
 </form>
+
+<a href="?action=index">retour à l'acueil</a>
