@@ -45,7 +45,7 @@ needs $articleContent difined to print an article content with key:
 
 <div>
     <a href="http://blog.local?action=blogPostCreateComment&id=<?=$idArticle?>">
-        <button>Créer un article</button>
+        <button>Créer un commentaire</button>
     </a>
 </div>
 
