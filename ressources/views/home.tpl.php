@@ -8,7 +8,6 @@
     <h2> Pas d'article encore écrit</h2>
 <?php else: ?>
     <?php foreach ( $articlesContent as $article) :?>
-
         <article>
             <h2>
                 <?=$article['title'] ?>
@@ -17,10 +16,10 @@
                 Les détails
             </a>
             <p>
-                écrit par <?= $article["écrit par"] ?>
+                écrit par <i><?= $article["écrit par"] ?> </i>
             </p>
             <p>
-                le <?= $article['le'] ?>
+                le <i><?= $article['le'] ?></i>
             </p>
         </article>
     <?php endforeach ?>
