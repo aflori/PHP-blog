@@ -1,5 +1,5 @@
 UPDATE
-    `Articles`
+    Articles
 SET 
     title = :newTitre,
     content = :newContent,
@@ -7,5 +7,5 @@ SET
     unpublicationDate = :newDepublicationDate,
     importantLevel = :newImportance
 WHERE
-    `Articles`.`ID` = :idArticle;
+    Articles.ID = :idArticle;
     
