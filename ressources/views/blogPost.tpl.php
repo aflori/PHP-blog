@@ -19,3 +19,8 @@ needs $articleContent difined to print an article content with key:
     <i><?=$articleContent['pseudo']?></i>.
 </p>
 <a href="http://blog.local/?action=blogPostEdit&id=<?=$idArticle?>" >Modifier l'article</a>
+<section>
+    <form action="?action=blogPostDelet&id=<?=$idArticle?>" method="post">
+        <button type="submit">Suprimer l'article</button>
+    </form>
+</section>
