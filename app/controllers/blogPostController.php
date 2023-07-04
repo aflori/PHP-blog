@@ -19,6 +19,7 @@ else
     if(array_key_exists('title', $articleContent))
     {
         $metaTitle = $articleContent['title'];
+        $lesComments = getComment($idArticle);
     }
     else
     {

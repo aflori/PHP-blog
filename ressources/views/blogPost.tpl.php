@@ -4,7 +4,7 @@ needs $articleContent difined to print an article content with key:
 'content' -> article text
 'date Posté' -> publication date
 'pseudo' -> autor's pseudoname
-*/ ?>blogPostDelet
+*/ ?>
 
 <h1>
     <?=$articleContent['title']?>

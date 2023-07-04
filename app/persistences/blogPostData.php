@@ -118,3 +118,8 @@ function deleteArticle(int $idArticle): void
     setRequest($dataBase, "delete_article.sql", ['idArticle' => $idArticle ]);
 
 }
+
+function getComment(int $idArticle): array
+{
+    return [];
+}
