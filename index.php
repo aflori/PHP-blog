@@ -12,7 +12,7 @@
         'blogPostCreate' => 'blogPostCreateController.php',
         'blogPostEdit' => 'blogPostEditController.php',
         'blogPostDelet' => 'blogPostDelete.php',
-        'logPostCreateComment' => 'blogPostCreatC.php'
+        'blogPostCreateComment' => 'blogPostCreatC.php'
     ];
 
     $nomDeLaRoute = filter_input(INPUT_GET, "action",FILTER_SANITIZE_URL);
