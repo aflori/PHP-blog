@@ -6,11 +6,12 @@
  * $_SESSION['commentTextM']
  */
 ?>
-<form action="?action=blogPostCreateComment" method="post">
+<form action="?action=blogPostCreateComment&id=<?=$idArticle?>" method="post">
 
     <label>
         <?= $_SESSION['commentTextM'] ?>
         <textarea name="commentContent" cols="20" rows ="5"></textarea>
+        <br>
     </label>
 
     <label for="radioAutor">
@@ -23,10 +24,7 @@
                         type="radio"
                         name="autorPseudo"
                         value="<?=$autorID['id']?>"
-                    <?php
-                    if ($formSent and $autorID['id']===$_SESSION['create']['autorPseudo'])
-                    { echo "checked"; }
-                    ?> >
+                >
                 <?= $autorID["pseudoname"] ?>
             </label>
         </div>
