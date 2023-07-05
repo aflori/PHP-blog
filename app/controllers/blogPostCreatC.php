@@ -17,7 +17,7 @@ else:
         $requestContent = filter_input_array(INPUT_POST, $myFilters );
 
         $formNoError = true;
-        if($requestContent['commentContent'] == null or $requestContent[''])
+        if($requestContent['commentContent'] == null or strlen($requestContent['commentContent'])===0 )
         {
             $_SESSION['commentTextM'] = 'Entrez du TEXTE!';
             $formNoError = false;
@@ -31,6 +31,7 @@ else:
 
         if($formNoError)
         {
+            setComment($requestContent['commentContent'], $requestContent['autorPseudo'], $idArticle);
             header("Location: http://blog.local/?action=blogpost&id=" . $_GET['id'] );
             die();
         }

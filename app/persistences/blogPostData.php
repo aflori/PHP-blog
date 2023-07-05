@@ -126,3 +126,13 @@ function getComment(int $idArticle): array
     $dataBase = getSourceServeur();
     return setRequest($dataBase, "Get_comment_from_article_ID.sql", [$idArticle] );
 }
+
+function setComment(string $commentContent, int $idArticle, int $idAutor): void
+{
+    $dataBase = getSourceServeur();
+    setRequest($dataBase, "add_coment.sql", [
+        'commentContent' => $commentContent,
+        'AutorID' => $idAutor,
+        'ArticleID' => $idArticle
+    ]);
+}
