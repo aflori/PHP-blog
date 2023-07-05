@@ -31,7 +31,7 @@ else:
 
         if($formNoError)
         {
-            setComment($requestContent['commentContent'], $requestContent['autorPseudo'], $idArticle);
+            setComment($requestContent['commentContent'], $idArticle, $requestContent['autorPseudo']);
             header("Location: http://blog.local/?action=blogpost&id=" . $_GET['id'] );
             die();
         }
