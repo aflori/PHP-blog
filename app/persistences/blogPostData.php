@@ -115,6 +115,8 @@ function editArticle(array $source, int $idArticle) : void
 function deleteArticle(int $idArticle): void
 {
     $dataBase = getSourceServeur();
+    setRequest($dataBase, "delete_comment_from_article.sql", ['idArticle' => $idArticle ]);
+    setRequest($dataBase, "delete_classification_from_article.sql", ['idArticle' => $idArticle ]);
     setRequest($dataBase, "delete_article.sql", ['idArticle' => $idArticle ]);
 
 }
